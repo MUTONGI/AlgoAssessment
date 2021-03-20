@@ -1,3 +1,5 @@
+using System;
+
 namespace TGS.Challenge
 {
   /*
@@ -24,7 +26,17 @@ namespace TGS.Challenge
     {
       public bool AreAnagrams(string word1, string word2)
       {
-        return false;
+
+            char[] lowerWord1 = word1.ToLower().ToCharArray();
+            char[] lowerWord2 = word2.ToLower().ToCharArray();
+
+            Array.Sort(lowerWord1);
+            Array.Sort(lowerWord2);
+
+            string NewWord1 = new string(lowerWord1);
+            string NewWord2 = new string(lowerWord2);
+
+            return (NewWord1 == NewWord2);
       }
     }
 }
