@@ -24,9 +24,27 @@ namespace TGS.Challenge
      */
     public class FormatNumber
     {
+        readonly static int commaPosition = 3;
         public string Format(int value)
         {
-            return string.Empty;
+            string result = string.Empty;
+            string myNumber = value.ToString();
+            int counter = 0;
+
+            for (int index = myNumber.Length - 1; index >= 0; index--)
+            {
+                if (counter == commaPosition)
+                {
+                    result = myNumber[index] + "," + result;
+                    counter = 0;
+                }
+                else
+                {
+                    result = myNumber[index] + result;
+                }
+                counter++;
+            }
+            return result;
         }
     }
 }
