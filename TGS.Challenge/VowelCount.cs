@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace TGS.Challenge
 {
@@ -12,11 +13,38 @@ namespace TGS.Challenge
         There are accompanying unit tests for this exercise, ensure all tests pass & make
         sure the unit tests are correct too.
      */
+   
     public class VowelCount
     {
+        List<char> vowels = new List<char>() { 'a', 'e', 'i', 'o', 'u' };
+
         public int Count(string value)
         {
-            return -1;
+            int vowelCount = 0;
+
+            if (value == null)
+            {
+                throw new ArgumentNullException("value");
+            }
+            try
+            {
+                foreach (char chr in value)
+                {
+                    if (vowels.Contains(chr))
+                    {
+                        vowelCount++;
+                    }
+                }
+                return vowelCount;
+            }
+            catch (Exception )
+            {
+
+                throw new Exception();
+            }
+
+            
+            
         }
     }
 }
