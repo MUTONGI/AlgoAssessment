@@ -31,20 +31,28 @@ namespace TGS.Challenge
             string myNumber = value.ToString();
             int counter = 0;
 
-            for (int index = myNumber.Length - 1; index >= 0; index--)
+            try
             {
-                if (counter == commaPosition)
+                for (int index = myNumber.Length - 1; index >= 0; index--)
                 {
-                    result = myNumber[index] + "," + result;
-                    counter = 0;
+                    if (counter == commaPosition)
+                    {
+                        result = myNumber[index] + "," + result;
+                        counter = 0;
+                    }
+                    else
+                    {
+                        result = myNumber[index] + result;
+                    }
+                    counter++;
                 }
-                else
-                {
-                    result = myNumber[index] + result;
-                }
-                counter++;
+                return result;
             }
-            return result;
+            catch (ArgumentNullException )
+            {
+
+                throw new ArgumentNullException("-1");
+            }
         }
     }
 }
